@@ -6,7 +6,7 @@
 /*   By: andytropmimi <andytropmimi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:24:32 by amalgonn          #+#    #+#             */
-/*   Updated: 2023/12/10 22:20:54 by andytropmim      ###   ########.fr       */
+/*   Updated: 2023/12/10 23:19:09 by andytropmim      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*read_line_from_buffer(char *line, char *buf, int fd)
 	}
 	return (line);
 }
+
 char	*get_next_line(int fd)
 {
 	static char	buf[BUFFER_SIZE + 1];

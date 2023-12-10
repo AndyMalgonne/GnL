@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amalgonn <amalgonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andytropmimi <andytropmimi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:37:09 by amalgonn          #+#    #+#             */
-/*   Updated: 2023/12/08 09:19:21 by amalgonn         ###   ########.fr       */
+/*   Updated: 2023/12/10 23:19:21 by andytropmim      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
@@ -73,7 +74,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
-
 
 char	*ft_strnjoin(char *s1, char const *s2, size_t new_line)
 {
