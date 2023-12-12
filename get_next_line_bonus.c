@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalgonn <amalgonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:24:32 by amalgonn          #+#    #+#             */
-/*   Updated: 2023/12/11 08:50:49 by amalgonn         ###   ########.fr       */
+/*   Created: 2023/12/11 08:48:45 by amalgonn          #+#    #+#             */
+/*   Updated: 2023/12/12 10:50:51 by amalgonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	read_error(int fd, char *buf)
 {
@@ -43,27 +43,27 @@ static char	*read_line_from_buffer(char *line, char *buf, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE + 1];
+	static char	buf[FD_MAX][BUFFER_SIZE + 1];
 	char		*line;
 	char		*newline;
 	int			i;
 
-	if (read_error(fd, buf) == 0)
+	if (fd >= FD_MAX || fd < 0 || read_error(fd, buf[fd]) == 0)
 		return (NULL);
-	line = ft_strdup(buf);
-	line = read_line_from_buffer(line, buf, fd);
+	line = ft_strdup(buf[fd]);
+	line = read_line_from_buffer(line, buf[fd], fd);
 	if (ft_strlen(line) == 0)
 		return (free(line), NULL);
 	newline = ft_strchr(line, '\n');
 	if (newline != NULL)
 	{
 		i = newline - line + 1;
-		ft_strlcpy(buf, newline + 1, BUFFER_SIZE + 1);
+		ft_strlcpy(buf[fd], newline + 1, BUFFER_SIZE + 1);
 	}
 	else
 	{
 		i = ft_strlen(line);
-		ft_strlcpy(buf, "", BUFFER_SIZE + 1);
+		ft_strlcpy(buf[fd], "", BUFFER_SIZE + 1);
 	}
 	line[i] = '\0';
 	return (line);

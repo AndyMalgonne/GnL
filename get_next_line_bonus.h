@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalgonn <amalgonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 12:37:03 by amalgonn          #+#    #+#             */
-/*   Updated: 2023/12/12 10:39:45 by amalgonn         ###   ########.fr       */
+/*   Created: 2023/12/11 08:49:02 by amalgonn          #+#    #+#             */
+/*   Updated: 2023/12/11 11:43:10 by amalgonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2000
+#  define BUFFER_SIZE 3
+
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 512
+
 # endif
 
 char	*get_next_line(int fd);
